@@ -1,0 +1,239 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="logout-div">
+  <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+</div>
+  <div class="center">
+    <form method="post">
+      {% csrf_token %}
+      <div class="questions">
+        <br>
+        <br>
+        <label class="question">
+          Percentage of employees' satisfaction with the university's commitment to good
+          governance practices in terms of participation, transparency, justice, gender equality,
+          accountability and effectiveness.
+        </label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q1" class="radioMax disagree" value="-3">
+        <input type="radio" name="q1" class="radioMid disagree" value="-2">
+        <input type="radio" name="q1" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q1" class="radioLast" value="0">
+        <input type="radio" name="q1" class="radioSmall agree" value="1">
+        <input type="radio" name="q1" class="radioMid agree" value="2">
+        <input type="radio" name="q1" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          Existence of a policy, procedures and forms for managing employee complaints.
+        </label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q2" class="radioMax disagree " value="-3">
+        <input type="radio" name="q2" class="radioMid disagree" value="-2">
+        <input type="radio" name="q2" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q2" class="radioLast" value="0">
+        <input type="radio" name="q2" class="radioSmall agree" value="1">
+        <input type="radio" name="q2" class="radioMid agree" value="2">
+        <input type="radio" name="q2" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          Percentage of workers' complaints and suggestions from workers dealt with and resolved.
+        </label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q3" class="radioMax disagree " value="-3">
+        <input type="radio" name="q3" class="radioMid disagree" value="-2">
+        <input type="radio" name="q3" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q3" class="radioLast" value="0">
+        <input type="radio" name="q3" class="radioSmall agree" value="1">
+        <input type="radio" name="q3" class="radioMid agree" value="2">
+        <input type="radio" name="q3" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          The percentage of employees' satisfaction with the effectiveness of the complaints and
+          suggestions platform, and the percentage of problem solving. </label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q4" class="radioMax disagree " value="-3">
+        <input type="radio" name="q4" class="radioMid disagree" value="-2">
+        <input type="radio" name="q4" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q4" class="radioLast" value="0">
+        <input type="radio" name="q4" class="radioSmall agree" value="1">
+        <input type="radio" name="q4" class="radioMid agree" value="2">
+        <input type="radio" name="q4" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          The percentage of students’ satisfaction with the university’s commitment to good
+          governance practices in terms of participation, transparency, justice, gender equality,
+          accountability and effectiveness. </label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q5" class="radioMax disagree " value="-3">
+        <input type="radio" name="q5" class="radioMid disagree" value="-2">
+        <input type="radio" name="q5" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q5" class="radioLast" value="0">
+        <input type="radio" name="q5" class="radioSmall agree" value="1">
+        <input type="radio" name="q5" class="radioMid agree" value="2">
+        <input type="radio" name="q5" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          Existence of a policy, procedures and forms for managing student complaints.
+        </label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q6" class="radioMax disagree " value="-3">
+        <input type="radio" name="q6" class="radioMid disagree" value="-2">
+        <input type="radio" name="q6" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q6" class="radioLast" value="0">
+        <input type="radio" name="q6" class="radioSmall agree" value="1">
+        <input type="radio" name="q6" class="radioMid agree" value="2">
+        <input type="radio" name="q6" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          The existence of an electronic system for managing complaints received from students.
+        </label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q7" class="radioMax disagree " value="-3">
+        <input type="radio" name="q7" class="radioMid disagree" value="-2">
+        <input type="radio" name="q7" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q7" class="radioLast" value="0">
+        <input type="radio" name="q7" class="radioSmall agree" value="1">
+        <input type="radio" name="q7" class="radioMid agree" value="2">
+        <input type="radio" name="q7" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          Percentage of students' complaints and suggestions dealt with and resolved.
+        </label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q8" class="radioMax disagree " value="-3">
+        <input type="radio" name="q8" class="radioMid disagree" value="-2">
+        <input type="radio" name="q8" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q8" class="radioLast" value="0">
+        <input type="radio" name="q8" class="radioSmall agree" value="1">
+        <input type="radio" name="q8" class="radioMid agree" value="2">
+        <input type="radio" name="q8" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          The percentage of students’ satisfaction with the effectiveness of the complaints platform.
+        </label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q9" class="radioMax disagree " value="-3">
+        <input type="radio" name="q9" class="radioMid disagree" value="-2">
+        <input type="radio" name="q9" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q9" class="radioLast" value="0">
+        <input type="radio" name="q9" class="radioSmall agree" value="1">
+        <input type="radio" name="q9" class="radioMid agree" value="2">
+        <input type="radio" name="q9" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          The number of violations related to institutional values committed by university
+          employees.</label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q10" class="radioMax disagree " value="-3">
+        <input type="radio" name="q10" class="radioMid disagree" value="-2">
+        <input type="radio" name="q10" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q10" class="radioLast" value="0">
+        <input type="radio" name="q10" class="radioSmall agree" value="1">
+        <input type="radio" name="q10" class="radioMid agree" value="2">
+        <input type="radio" name="q10" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">The percentage of students’ satisfaction with communicating with leaders in
+          the university.</label>
+        <br>
+        <br>
+        <label class="disagree"><strong>Disagree</strong></label>
+        <input type="radio" name="q11" class="radioMax disagree " value="-3">
+        <input type="radio" name="q11" class="radioMid disagree" value="-2">
+        <input type="radio" name="q11" class="radioSmall disagree" value="-1">
+        <input type="radio" name="q11" class="radioLast" value="0">
+        <input type="radio" name="q11" class="radioSmall agree" value="1">
+        <input type="radio" name="q11" class="radioMid agree" value="2">
+        <input type="radio" name="q11" class="radioMax agree" value="3">
+        <label class="agree"><strong>Agree</strong></label>
+
+      </div>
+      <br>
+      <br>
+      <hr>
+      <input type="submit" value="Submit" class="submitButton">
+      <br>
+      <br>
+    </form>
+  </div>
+{% endblock content %}
