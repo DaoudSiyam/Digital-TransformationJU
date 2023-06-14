@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<header class="header">
+    <img style="width: 210px" src="{% static 'logo-words.png' %}" alt="">
+    <div class="logout-div">
+        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+    </div>
+</header>
+
+<div class="center-text">
+    <center>
+        نظام ترتيب الجامعة الأردنية
+    </center>
+</div>
+
+
+
+<div>
+    <center>
+        <a href="{% url 'choices' %}" class="return-button">الرجوع</a>
+      </center>
+</div>
+{% endblock content %}

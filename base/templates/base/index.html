@@ -1,9 +1,15 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
-<div class="logout-div">
-  <a href="{% url 'logout' %}" class="logout-button">Logout</a>
-</div>
+<header class="header">
+  <img style="width: 210px" src="{% static 'logo-words.png' %}" alt="">
+  <div class="logout-div">
+      <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+  </div>
+</header>
+
+{% if not user.submitted %}
   <div class="center">
     <form method="post">
       {% csrf_token %}
@@ -11,21 +17,18 @@
         <br>
         <br>
         <label class="question">
-          Percentage of employees' satisfaction with the university's commitment to good
-          governance practices in terms of participation, transparency, justice, gender equality,
-          accountability and effectiveness.
+          نسبة رضى العاملين عن التزام الجامعة بممارسات الحاكمية الرشيدة من ناحية المشاركة،
+          والشفافية والعدالة والمساواة بين الجنسين والمساءلة والفعالية
         </label>
         <br>
         <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q1" class="radioMax disagree" value="-3">
-        <input type="radio" name="q1" class="radioMid disagree" value="-2">
-        <input type="radio" name="q1" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q1" class="radioLast" value="0">
-        <input type="radio" name="q1" class="radioSmall agree" value="1">
-        <input type="radio" name="q1" class="radioMid agree" value="2">
-        <input type="radio" name="q1" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q1" class="radioSmall" value="1">
+        <input type="radio" name="q1" class="radioSmall" value="2">
+        <input type="radio" name="q1" class="radioSmall" value="3">
+        <input type="radio" name="q1" class="radioSmall" value="4">
+        <input type="radio" name="q1" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
         <br>
         <br>
         <hr>
@@ -33,19 +36,17 @@
         <br>
         <br>
         <label class="question">
-          Existence of a policy, procedures and forms for managing employee complaints.
+          وجود سياسة وإجراءات و نماذج لإدارة شكاوى العاملين
         </label>
         <br>
         <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q2" class="radioMax disagree " value="-3">
-        <input type="radio" name="q2" class="radioMid disagree" value="-2">
-        <input type="radio" name="q2" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q2" class="radioLast" value="0">
-        <input type="radio" name="q2" class="radioSmall agree" value="1">
-        <input type="radio" name="q2" class="radioMid agree" value="2">
-        <input type="radio" name="q2" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q2" class="radioSmall" value="1">
+        <input type="radio" name="q2" class="radioSmall" value="2">
+        <input type="radio" name="q2" class="radioSmall" value="3">
+        <input type="radio" name="q2" class="radioSmall" value="4">
+        <input type="radio" name="q2" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
         <br>
         <br>
         <hr>
@@ -53,19 +54,17 @@
         <br>
         <br>
         <label class="question">
-          Percentage of workers' complaints and suggestions from workers dealt with and resolved.
+          نسبة شكاوى العاملين و مقترحاتهم من العاملين المتعامل معها و المحلول منا
         </label>
         <br>
         <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q3" class="radioMax disagree " value="-3">
-        <input type="radio" name="q3" class="radioMid disagree" value="-2">
-        <input type="radio" name="q3" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q3" class="radioLast" value="0">
-        <input type="radio" name="q3" class="radioSmall agree" value="1">
-        <input type="radio" name="q3" class="radioMid agree" value="2">
-        <input type="radio" name="q3" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q3" class="radioSmall" value="1">
+        <input type="radio" name="q3" class="radioSmall" value="2">
+        <input type="radio" name="q3" class="radioSmall" value="3">
+        <input type="radio" name="q3" class="radioSmall" value="4">
+        <input type="radio" name="q3" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
         <br>
         <br>
         <hr>
@@ -73,60 +72,17 @@
         <br>
         <br>
         <label class="question">
-          The percentage of employees' satisfaction with the effectiveness of the complaints and
-          suggestions platform, and the percentage of problem solving. </label>
-        <br>
-        <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q4" class="radioMax disagree " value="-3">
-        <input type="radio" name="q4" class="radioMid disagree" value="-2">
-        <input type="radio" name="q4" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q4" class="radioLast" value="0">
-        <input type="radio" name="q4" class="radioSmall agree" value="1">
-        <input type="radio" name="q4" class="radioMid agree" value="2">
-        <input type="radio" name="q4" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
-        <br>
-        <br>
-        <hr>
-
-        <br>
-        <br>
-        <label class="question">
-          The percentage of students’ satisfaction with the university’s commitment to good
-          governance practices in terms of participation, transparency, justice, gender equality,
-          accountability and effectiveness. </label>
-        <br>
-        <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q5" class="radioMax disagree " value="-3">
-        <input type="radio" name="q5" class="radioMid disagree" value="-2">
-        <input type="radio" name="q5" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q5" class="radioLast" value="0">
-        <input type="radio" name="q5" class="radioSmall agree" value="1">
-        <input type="radio" name="q5" class="radioMid agree" value="2">
-        <input type="radio" name="q5" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
-        <br>
-        <br>
-        <hr>
-
-        <br>
-        <br>
-        <label class="question">
-          Existence of a policy, procedures and forms for managing student complaints.
+        نسبة رضى تاعاملسن من فاعلية منصة الشكاوى و المقتراحات, و نسبة حل المشاكل
         </label>
         <br>
         <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q6" class="radioMax disagree " value="-3">
-        <input type="radio" name="q6" class="radioMid disagree" value="-2">
-        <input type="radio" name="q6" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q6" class="radioLast" value="0">
-        <input type="radio" name="q6" class="radioSmall agree" value="1">
-        <input type="radio" name="q6" class="radioMid agree" value="2">
-        <input type="radio" name="q6" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q4" class="radioSmall" value="1">
+        <input type="radio" name="q4" class="radioSmall" value="2">
+        <input type="radio" name="q4" class="radioSmall" value="3">
+        <input type="radio" name="q4" class="radioSmall" value="4">
+        <input type="radio" name="q4" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
         <br>
         <br>
         <hr>
@@ -134,19 +90,17 @@
         <br>
         <br>
         <label class="question">
-          The existence of an electronic system for managing complaints received from students.
+          نسبة رضى الطلبة عن التزام الجامعة بممارسات الحاكمية الرشيدة من ناحية المشاركة، والشفافية والعدالة والمساواة بين الجنسين والمساءلة والفعالي
         </label>
         <br>
         <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q7" class="radioMax disagree " value="-3">
-        <input type="radio" name="q7" class="radioMid disagree" value="-2">
-        <input type="radio" name="q7" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q7" class="radioLast" value="0">
-        <input type="radio" name="q7" class="radioSmall agree" value="1">
-        <input type="radio" name="q7" class="radioMid agree" value="2">
-        <input type="radio" name="q7" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q5" class="radioSmall" value="1">
+        <input type="radio" name="q5" class="radioSmall" value="2">
+        <input type="radio" name="q5" class="radioSmall" value="3">
+        <input type="radio" name="q5" class="radioSmall" value="4">
+        <input type="radio" name="q5" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
         <br>
         <br>
         <hr>
@@ -154,19 +108,17 @@
         <br>
         <br>
         <label class="question">
-          Percentage of students' complaints and suggestions dealt with and resolved.
+          وجود سياسة و إجاءات و نماذج لإدارة شكاوى الطلبة
         </label>
         <br>
         <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q8" class="radioMax disagree " value="-3">
-        <input type="radio" name="q8" class="radioMid disagree" value="-2">
-        <input type="radio" name="q8" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q8" class="radioLast" value="0">
-        <input type="radio" name="q8" class="radioSmall agree" value="1">
-        <input type="radio" name="q8" class="radioMid agree" value="2">
-        <input type="radio" name="q8" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q6" class="radioSmall" value="1">
+        <input type="radio" name="q6" class="radioSmall" value="2">
+        <input type="radio" name="q6" class="radioSmall" value="3">
+        <input type="radio" name="q6" class="radioSmall" value="4">
+        <input type="radio" name="q6" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
         <br>
         <br>
         <hr>
@@ -174,19 +126,17 @@
         <br>
         <br>
         <label class="question">
-          The percentage of students’ satisfaction with the effectiveness of the complaints platform.
+          وجود نظام إلكتروني لإدارة الشكاوى الواردة من الطلبة
         </label>
         <br>
         <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q9" class="radioMax disagree " value="-3">
-        <input type="radio" name="q9" class="radioMid disagree" value="-2">
-        <input type="radio" name="q9" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q9" class="radioLast" value="0">
-        <input type="radio" name="q9" class="radioSmall agree" value="1">
-        <input type="radio" name="q9" class="radioMid agree" value="2">
-        <input type="radio" name="q9" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q7" class="radioSmall" value="1">
+        <input type="radio" name="q7" class="radioSmall" value="2">
+        <input type="radio" name="q7" class="radioSmall" value="3">
+        <input type="radio" name="q7" class="radioSmall" value="4">
+        <input type="radio" name="q7" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
         <br>
         <br>
         <hr>
@@ -194,38 +144,71 @@
         <br>
         <br>
         <label class="question">
-          The number of violations related to institutional values committed by university
-          employees.</label>
+          نسبة شكاوى الطلبة و مقترحاتهم المتعامل معها و المحلول منها
+        </label>
         <br>
         <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q10" class="radioMax disagree " value="-3">
-        <input type="radio" name="q10" class="radioMid disagree" value="-2">
-        <input type="radio" name="q10" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q10" class="radioLast" value="0">
-        <input type="radio" name="q10" class="radioSmall agree" value="1">
-        <input type="radio" name="q10" class="radioMid agree" value="2">
-        <input type="radio" name="q10" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q8" class="radioSmall" value="1">
+        <input type="radio" name="q8" class="radioSmall" value="2">
+        <input type="radio" name="q8" class="radioSmall" value="3">
+        <input type="radio" name="q8" class="radioSmall" value="4">
+        <input type="radio" name="q8" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
         <br>
         <br>
         <hr>
 
         <br>
         <br>
-        <label class="question">The percentage of students’ satisfaction with communicating with leaders in
-          the university.</label>
+        <label class="question">
+          نسبة رضى الطلبة عن فاعلية منصة الشكاوى
+        </label>
         <br>
         <br>
-        <label class="disagree"><strong>Disagree</strong></label>
-        <input type="radio" name="q11" class="radioMax disagree " value="-3">
-        <input type="radio" name="q11" class="radioMid disagree" value="-2">
-        <input type="radio" name="q11" class="radioSmall disagree" value="-1">
-        <input type="radio" name="q11" class="radioLast" value="0">
-        <input type="radio" name="q11" class="radioSmall agree" value="1">
-        <input type="radio" name="q11" class="radioMid agree" value="2">
-        <input type="radio" name="q11" class="radioMax agree" value="3">
-        <label class="agree"><strong>Agree</strong></label>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q9" class="radioSmall" value="1">
+        <input type="radio" name="q9" class="radioSmall" value="2">
+        <input type="radio" name="q9" class="radioSmall" value="3">
+        <input type="radio" name="q9" class="radioSmall" value="4">
+        <input type="radio" name="q9" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          عدد المخالفات المتعلقة بالقيم المؤسسية التي ارتكبها العاملون في الجامعة
+        </label>
+        <br>
+        <br>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q10" class="radioSmall" value="1">
+        <input type="radio" name="q10" class="radioSmall" value="2">
+        <input type="radio" name="q10" class="radioSmall" value="3">
+        <input type="radio" name="q10" class="radioSmall" value="4">
+        <input type="radio" name="q10" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          نسبة رضى الطلبة عن التواصل مع القيادات في الجامعة
+        </label>
+        <br>
+        <br>
+        <label class="agree"><strong>أوافق</strong></label>
+        <input type="radio" name="q11" class="radioSmall" value="1">
+        <input type="radio" name="q11" class="radioSmall" value="2">
+        <input type="radio" name="q11" class="radioSmall" value="3">
+        <input type="radio" name="q11" class="radioSmall" value="4">
+        <input type="radio" name="q11" class="radioSmall" value="5">
+        <label class="disagree"><strong>لا أوافق</strong></label>
 
       </div>
       <br>
@@ -236,4 +219,12 @@
       <br>
     </form>
   </div>
+  {% else %}
+    <div class="thank-you">
+      !شكرا لك, لقد تم تلقي الرد
+      <center>
+        <a href="{% url 'choices' %}" class="return-button">الرجوع</a>
+      </center>
+    </div>
+  {% endif %}
 {% endblock content %}

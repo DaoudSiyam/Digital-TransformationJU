@@ -68,14 +68,13 @@
     transition: 0.2s;
 }
 .question{
-    font-size: large;
+    font-size: 27px;
 }
 
 .logout-div{
     display: flex;
     justify-content: right;
     align-items: center;
-    margin-top: 30px;
     margin-right: 20px;
 }
 
@@ -99,4 +98,94 @@
     transform: scale(104%);
     background-color: rgb(5, 197, 197);
     transition: 0.2s;
+}
+
+.thank-you{
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15%;
+    flex-direction: column;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.return-button{
+    font-size: 30px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px rgb(179, 176, 176) solid;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    background-color: rgb(0, 173, 173);
+    color: #fff;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.return-button:hover{
+    transform: scale(104%);
+    background-color: rgb(5, 197, 197);
+    transition: 0.2s;
+}
+
+.center-choices{
+    display: flex;
+    justify-content: center;
+    margin-top: 17%;
+}
+
+.query-button{
+    font-size: 30px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    border: 2px rgb(179, 176, 176) solid;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    background-color: rgb(0, 173, 173);
+    color: #fff;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-left: 15px;
+}
+
+.form-button{
+    font-size: 30px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    border: 2px rgb(179, 176, 176) solid;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+    background-color: rgb(0, 173, 173);
+    color: #fff;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-right: 15px;
+}
+
+.form-button:hover, .query-button:hover{
+    transform: scale(104%);
+    background-color: rgb(5, 197, 197);
+    transition: 0.2s;
+}
+
+.center-text{
+    font-size: 50px;
 }

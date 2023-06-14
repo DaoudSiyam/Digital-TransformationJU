@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required(login_url = 'login_form')
 def index_page(request):
+    user = User.objects.get(id = request.user.id)
     if request.method == 'POST':
         q1 = request.POST.get('q1')
         q2 = request.POST.get('q2')
@@ -34,13 +35,17 @@ def index_page(request):
             q10=q10,
             q11=q11,
         )
-        feedback.save()                    
+        feedback.save()
+        user.submitted = True
+        user.save()
+        return redirect('home')
+                      
     return render(request, 'base/index.html')
 
 
 def login_form(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect( 'home' )
     
     if request.method == 'POST':
         username = request.POST.get( 'username' )
@@ -50,13 +55,13 @@ def login_form(request):
             user = User.objects.get( username = username )
             # this is what we write to check if user exists
         except:
-            HttpResponse("user does not exist")
+            HttpResponse( "user does not exist" )
     
         user = authenticate( request, username = username, password = password )
 
         if user is not None:
             login( request, user )
-            return redirect( 'home' )
+            return redirect( 'choices' )
 
     context = {}
     return render(request, 'base/login_form.html', context)
@@ -65,3 +70,13 @@ def login_form(request):
 def logout_user(request):
     logout(request)
     return redirect('login_form')
+
+def choices_page(request):
+
+    context = {}
+    return render(request, 'base/choices.html', context)
+
+def query_system(request):
+
+    context = {}
+    return render( request,'base/query-system.html', context )

@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+<header class="header">
+    <img style="width: 210px" src="{% static 'logo-words.png' %}" alt="">
+    <div class="logout-div">
+        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+    </div>
+</header>
+
+
+<div class="center-choices">
+    <div>
+        <a href="{% url 'home' %}" class="form-button">نظام الحاكمية الرشيدة</a>
+    </div>
+    <div>
+        <a href="{% url 'query' %}" class="query-button">نظام ترتيب الجامعة الأردنية</a>
+    </div>
+</div>
+{% endblock content %}

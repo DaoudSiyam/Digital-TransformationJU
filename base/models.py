@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User( AbstractUser ):
     full_name = models.CharField(max_length = 200, default="Fakhri")
-    submitted = models.BooleanField(default=False)
+    submitted = models.BooleanField( default=False )
 
 
 class Feedback(models.Model):
