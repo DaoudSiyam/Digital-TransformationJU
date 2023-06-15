@@ -15,11 +15,46 @@
     </center>
 </div>
 
+<div class="form-query">
+    <form action="{% url 'query' %}" method="get">
+        <select name="system" id="" class="system">
+            <option value="shanghai">تصنيف شنغهاي العالمي</option>
+            <option value="qs">تصنيف كيو أس العالمي للجامعات</option>
+            <option value="the">التايمز للجامعات العربية</option>
+            <option value="Webometrics">Webometrics</option>
+        </select>
 
+        <select name="year" id="" class="system">
+            <option value="2022">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2022">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select>
+
+        <select name="year" id="" class="system">
+            <option value="2022">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2022">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select>
+
+        <center>
+            <div>
+                <button class="select-button" type="submit">بحـث</button>
+            </div>
+        </center>
+    </form>
+</div>
 
 <div>
     <center>
         <a href="{% url 'choices' %}" class="return-button">الرجوع</a>
-      </center>
+    </center>
 </div>
 {% endblock content %}

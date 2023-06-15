@@ -130,6 +130,7 @@
     color: #fff;
     font-weight: bold;
     transition: 0.2s;
+    margin-bottom: 30px;
 }
 
 .return-button:hover{
@@ -188,4 +189,73 @@
 
 .center-text{
     font-size: 50px;
+    margin-top: 2%;
+    margin-bottom: 3%;
 }
+
+.form-query{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+
+.system{
+    font-size: 18px;
+    width: 200px;
+    
+}
+
+.select-button{
+    margin-top: 10%;
+    font-size: 25px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    border: 2px rgb(179, 176, 176) solid;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    background-color: rgb(0, 173, 173);
+    color: #fff;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-right: 15px;
+}
+
+.mySlider {
+    width: 500px; /* Adjust the width as needed */
+    height: 20px;
+    border: rgb(179, 176, 176) 2px solid;
+    margin-bottom: -20px;
+    margin-top: 20px;
+  }
+
+.sliderValue {
+    display: inline-block;
+    margin-left: 40px; /* Adjust the spacing as needed */
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: -10px;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 13px;
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(179, 176, 176);
+    border-radius: 50%;
+    cursor: pointer;
+  }

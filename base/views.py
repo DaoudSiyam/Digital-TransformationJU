@@ -36,8 +36,8 @@ def index_page(request):
             q11=q11,
         )
         feedback.save()
-        user.submitted = True
-        user.save()
+        # user.submitted = True
+        # user.save()
         return redirect('home')
                       
     return render(request, 'base/index.html')
