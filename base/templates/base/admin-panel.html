@@ -1,0 +1,174 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<header class="header">
+    <img style="width: 210px" src="{% static 'logo-words.png' %}" alt="">
+    <div class="logout-div">
+        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+    </div>
+</header>
+
+
+<div class="center-text">
+    <center>
+        لوحة نتائج استبيان الحاكمية الرشيدة
+    </center>
+</div>
+
+
+<div class="center">
+    
+      <div class="questions">
+        <br>
+        <br>
+        <div>
+            <label class="question">
+              نسبة رضى العاملين عن التزام الجامعة بممارسات الحاكمية الرشيدة من ناحية المشاركة
+              <br>
+              والشفافية والعدالة والمساواة بين الجنسين والمساءلة والفعالية
+              <br>
+              {{ worker_q1_percentage }}
+            </label>
+        </div>
+  
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div>
+            <label class="question">
+              وجود سياسة وإجراءات و نماذج لإدارة شكاوى العاملين
+              <br>
+              {{ worker_q2_percentage }}
+            </label>
+        </div>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div>
+            <label class="question">
+              نسبة شكاوى العاملين و مقترحاتهم من العاملين المتعامل معها و المحلول منا
+              <br>
+              {{ worker_q3_percentage }}
+            </label>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div>
+            <label class="question">
+            نسبة رضى العاملين من فاعلية منصة الشكاوى و المقتراحات, و نسبة حل المشاكل
+            <br>
+            {{ worker_q4_percentage }}
+            </label>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div>
+            <label class="question">
+              نسبة رضى الطلبة عن التزام الجامعة بممارسات الحاكمية الرشيدة من ناحية المشاركة، والشفافية والعدالة والمساواة بين الجنسين والمساءلة والفعالي
+              <br>
+              {{ student_q1_percentage }}
+            </label>
+        </div>
+      
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div>
+            <label class="question">
+              وجود سياسة و إجاءات و نماذج لإدارة شكاوى الطلبة
+              <br>
+              {{ student_q2_percentage }}
+            </label>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+  
+        <div>
+            <label class="question">
+              وجود نظام إلكتروني لإدارة الشكاوى الواردة من الطلبة
+              <br>
+              {{ student_q3_percentage }}
+            </label>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+  
+        <div>
+            <label class="question">
+              نسبة شكاوى الطلبة و مقترحاتهم المتعامل معها و المحلول منها
+              <br>
+              {{ student_q4_percentage }}
+            </label>
+        </div>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+  
+        <div>
+            <label class="question">
+              نسبة رضى الطلبة عن فاعلية منصة الشكاوى
+                <br>
+                {{ student_q5_percentage }}
+            </label>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+  
+        <div>
+            <label class="question">
+              عدد المخالفات المتعلقة بالقيم المؤسسية التي ارتكبها العاملون في الجامعة
+              <br>
+              {{ student_q6_percentage }}
+            </label>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>    
+        
+        <div>            
+            <label class="question">
+              نسبة رضى الطلبة عن التواصل مع القيادات في الجامعة
+              <br>
+              {{ student_q6_percentage }}
+            </label>
+        </div>
+        
+        <br><br><br><br>
+
+        <div style="margin-bottom: 40px;">
+            <center>
+                <a href="{% url 'choices' %}" class="return-button">الرجوع</a>
+            </center>
+        </div>
+  
+  </div>
+{% endblock content %}

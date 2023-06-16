@@ -43,11 +43,12 @@ def index_page(request):
                 q6=q6,                           
             )
             feedback.save()
-        # user.submitted = True
-        # user.save()
+            user.submitted = True
+            user.save()
         return redirect('home')
                       
     return render(request, 'base/index.html')
+
 
 
 def login_form(request):
@@ -74,9 +75,11 @@ def login_form(request):
     return render(request, 'base/login_form.html', context)
 
 
+
 def logout_user(request):
     logout(request)
     return redirect('login_form')
+
 
 
 def choices_page(request):
@@ -85,10 +88,12 @@ def choices_page(request):
     return render(request, 'base/choices.html', context)
 
 
+
 def query_system(request):
 
     context = {}
     return render( request,'base/query-system.html', context )
+
 
 
 def system_choices(request):
@@ -96,22 +101,98 @@ def system_choices(request):
     context = {}
     return render(request, 'base/system-choices.html', context)
 
+
+
 def qs(request):
 
     context = {}
     return render(request, 'base/qs.html', context)
+
+
 
 def the(request):
 
     context = {}
     return render(request, 'base/the.html', context)
 
+
+
 def webometrics(request):
 
     context = {}
     return render(request, 'base/webometrics.html', context)
 
+
+
 def shanghai(request):
 
     context = {}
     return render(request, 'base/shanghai.html', context)
+
+
+
+def admin_panel(request):
+    worker_feedback = WorkerFeedback.objects.all()
+    student_feedback = StudentFeedback.objects.all()
+
+
+    # WORKERS SECTION
+    worker_q1_percentage = 0
+    worker_q2_percentage = 0
+    worker_q3_percentage = 0
+    worker_q4_percentage = 0
+
+    for feedback in worker_feedback:
+        worker_q1_percentage += feedback.q1
+        worker_q2_percentage += feedback.q2
+        worker_q3_percentage += feedback.q3
+        worker_q4_percentage += feedback.q4
+
+    worker_q1_percentage = worker_q1_percentage / worker_feedback.count()
+    worker_q2_percentage = worker_q2_percentage / worker_feedback.count()
+    worker_q3_percentage = worker_q3_percentage / worker_feedback.count()
+    worker_q4_percentage = worker_q4_percentage / worker_feedback.count()
+
+
+    # STUDENTS SECTION
+    student_q1_percentage = 0
+    student_q2_percentage = 0
+    student_q3_percentage = 0
+    student_q4_percentage = 0
+    student_q5_percentage = 0
+    student_q6_percentage = 0
+
+    for feedback in student_feedback:
+        student_q1_percentage += feedback.q1
+        student_q2_percentage += feedback.q2
+        student_q3_percentage += feedback.q3
+        student_q4_percentage += feedback.q4
+        student_q5_percentage += feedback.q5
+        student_q6_percentage += feedback.q6
+    
+    student_q1_percentage = student_q1_percentage/student_feedback.count()
+    student_q2_percentage = student_q2_percentage/student_feedback.count()
+    student_q3_percentage = student_q3_percentage/student_feedback.count()
+    student_q4_percentage = student_q4_percentage/student_feedback.count()
+    student_q5_percentage = student_q5_percentage/student_feedback.count()
+    student_q6_percentage = student_q6_percentage/student_feedback.count()
+
+    context = {
+        'student_feedback' : student_feedback,
+        'worker_feedback': worker_feedback,
+
+
+        'worker_q1_percentage' : worker_q1_percentage,
+        'worker_q2_percentage' : worker_q2_percentage,
+        'worker_q3_percentage' : worker_q3_percentage,
+        'worker_q4_percentage' : worker_q4_percentage,
+
+
+        'student_q1_percentage' : student_q1_percentage,
+        'student_q2_percentage' : student_q2_percentage,
+        'student_q3_percentage' : student_q2_percentage,
+        'student_q4_percentage' : student_q4_percentage,
+        'student_q5_percentage' : student_q5_percentage,
+        'student_q6_percentage' : student_q6_percentage,
+    }
+    return render(request,'base/admin-panel.html', context)

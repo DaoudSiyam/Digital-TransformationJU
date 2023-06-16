@@ -13,7 +13,11 @@
 
 <div class="center-choices">
     <div>
+        {% if user.role == 'admin' %}
+        <a href="{% url 'admin-panel' %}" class="form-button">نظام الحاكمية الرشيدة</a>
+        {% else %}
         <a href="{% url 'home' %}" class="form-button">نظام الحاكمية الرشيدة</a>
+        {% endif %}
     </div>
     <div>
         <a href="{% url 'system-choices' %}" class="query-button">نظام ترتيب الجامعة الأردنية</a>
