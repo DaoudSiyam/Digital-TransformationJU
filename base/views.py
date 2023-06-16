@@ -26,13 +26,12 @@ def index_page(request):
             feedback.save()
 
         elif user.role == "student":
-            q1 = request.POST.get('q5')
-            q2 = request.POST.get('q6')
-            q3 = request.POST.get('q7')
-            q4 = request.POST.get('q8')
-            q5 = request.POST.get('q9')
-            q6 = request.POST.get('q10')
-            q7 = request.POST.get('q11')
+            q1 = request.POST.get('student-question1')
+            q2 = request.POST.get('student-question2')
+            q3 = request.POST.get('student-question3')
+            q4 = request.POST.get('student-question4')
+            q5 = request.POST.get('student-question5')
+            q6 = request.POST.get('student-question6')            
 
             feedback = StudentFeedback.objects.create(
                 user=request.user,
@@ -41,8 +40,7 @@ def index_page(request):
                 q3=q3,
                 q4=q4,
                 q5=q5,
-                q6=q6,
-                q7=q7,              
+                q6=q6,                           
             )
             feedback.save()
         # user.submitted = True

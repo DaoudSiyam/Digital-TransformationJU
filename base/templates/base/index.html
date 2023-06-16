@@ -338,6 +338,46 @@
       </center>
     </div>
   </div>
+  
+  <script>
+    // variables
+    const firstSlider = document.getElementById('student-question1');
+    const firstOutput = document.getElementById('student-slider1');
+
+    const secondSlider = document.getElementById('student-question4');
+    const secondOutput = document.getElementById('student-slider4');
+
+    const thirdSlider = document.getElementById('student-question5');
+    const thirdOutput = document.getElementById('student-slider5');
+
+    const fourthSlider = document.getElementById('student-question6');
+    const fourthOutput = document.getElementById('student-slider6');
+
+    // span text conent
+    firstOutput.textContent = firstSlider.value; // Display the default slider value
+    secondOutput.textContent = secondSlider.value
+    thirdOutput.textContent = thirdSlider.value;
+    fourthOutput.textContent = fourthSlider.value
+    
+    // silder functions
+    firstSlider.addEventListener('input', function() {
+      firstOutput.textContent = this.value; // Update the displayed value as the slider is dragged
+    });
+
+    secondSlider.addEventListener('input', function() {
+      secondOutput.textContent = this.value; // Update the displayed value as the slider is dragged
+    });
+
+    thirdSlider.addEventListener('input', function() {
+      thirdOutput.textContent = this.value; // Update the displayed value as the slider is dragged
+    });
+
+    fourthSlider.addEventListener('input', function() {
+      fourthOutput.textContent = this.value; // Update the displayed value as the slider is dragged
+    });
+
+  </script>
+
   {% endif %}
 
   

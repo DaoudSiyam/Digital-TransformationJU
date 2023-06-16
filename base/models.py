@@ -5,9 +5,6 @@ class User( AbstractUser ):
     role = models.CharField(max_length=100, default="admin")
     submitted = models.BooleanField( default=False )
 
-
-
-
 class StudentFeedback(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
