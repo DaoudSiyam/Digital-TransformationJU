@@ -10,6 +10,13 @@
 </header>
 
 {% if not user.submitted %}
+  {% if user.role == "worker" %}
+  <div class="center-text">
+    <center>
+        نظام الحاكمية الرشيدة للعاملين
+    </center>
+  </div>
+
   <div class="center">
     <form method="post">
       {% csrf_token %}
@@ -22,7 +29,7 @@
         </label>
         <br>
         <br>
-        <input class="mySlider" name="q1" type="range" min="0" max="100" value="50" id="mySlider">
+        <input class="mySlider" name="worker_question1" type="range" min="0" max="100" value="50" id="mySlider">
         <br>
         <center>
           <span class="sliderValue" id="sliderValue">50</span>
@@ -38,12 +45,13 @@
         </label>
         <br>
         <br>
+        
         <label class="agree"><strong>أوافق بشدة</strong></label>
-        <input type="radio" name="q2" class="radioSmall" value="0">
-        <input type="radio" name="q2" class="radioSmall" value="25">
-        <input type="radio" name="q2" class="radioSmall" value="50">
-        <input type="radio" name="q2" class="radioSmall" value="75">
-        <input type="radio" name="q2" class="radioSmall" value="10">
+        <input type="radio" name="worker-question2" class="radioSmall" value="100">
+        <input type="radio" name="worker-question2" class="radioSmall" value="75">
+        <input type="radio" name="worker-question2" class="radioSmall" value="50">
+        <input type="radio" name="worker-question2" class="radioSmall" value="25">
+        <input type="radio" name="worker-question2" class="radioSmall" value="0">
         <label class="disagree"><strong>لا أوافق بشدة</strong></label>
         <br>
         <br>
@@ -56,7 +64,7 @@
         </label>
         <br>
         <br>
-        <input class="mySlider" name="q3" type="range" min="0" max="100" value="50" id="q3Slider">
+        <input class="mySlider" name="worker-question3" type="range" min="0" max="100" value="50" id="q3Slider">
         <br>
         <center>
           <span class="sliderValue" id="q3SliderValue">50</span>
@@ -72,7 +80,7 @@
         </label>
         <br>
         <br>
-        <input class="mySlider" name="q4" type="range" min="0" max="100" value="50" id="q4Slider">
+        <input class="mySlider" name="worker-question4" type="range" min="0" max="100" value="50" id="q4Slider">
         <br>
         <center>
           <span class="sliderValue" id="q4SliderValue">50</span>
@@ -81,124 +89,6 @@
         <br>
         <hr>
 
-        <br>
-        <br>
-        <label class="question">
-          نسبة رضى الطلبة عن التزام الجامعة بممارسات الحاكمية الرشيدة من ناحية المشاركة، والشفافية والعدالة والمساواة بين الجنسين والمساءلة والفعالي
-        </label>
-        <br>
-        <br>
-        <input class="mySlider" name="q5" type="range" min="0" max="100" value="50" id="q5Slider">
-        <br>
-        <center>
-          <span class="sliderValue" id="q5SliderValue">50</span>
-        </center>
-        <br>
-        <br>
-        <hr>
-
-        <br>
-        <br>
-        <label class="question">
-          وجود سياسة و إجاءات و نماذج لإدارة شكاوى الطلبة
-        </label>
-        <br>
-        <br>
-        <label class="agree"><strong>أوافق</strong></label>
-        <input type="radio" name="q6" class="radioSmall" value="0">
-        <input type="radio" name="q6" class="radioSmall" value="25">
-        <input type="radio" name="q6" class="radioSmall" value="50">
-        <input type="radio" name="q6" class="radioSmall" value="75">
-        <input type="radio" name="q6" class="radioSmall" value="100">
-        <label class="disagree"><strong>لا أوافق</strong></label>
-        <br>
-        <br>
-        <hr>
-
-        <br>
-        <br>
-        <label class="question">
-          وجود نظام إلكتروني لإدارة الشكاوى الواردة من الطلبة
-        </label>
-        <br>
-        <br>
-        <label class="agree"><strong>أوافق</strong></label>
-        <input type="radio" name="q7" class="radioSmall" value="0">
-        <input type="radio" name="q7" class="radioSmall" value="25">
-        <input type="radio" name="q7" class="radioSmall" value="50">
-        <input type="radio" name="q7" class="radioSmall" value="75">
-        <input type="radio" name="q7" class="radioSmall" value="100">
-        <label class="disagree"><strong>لا أوافق</strong></label>
-        <br>
-        <br>
-        <hr>
-
-        <br>
-        <br>
-        <label class="question">
-          نسبة شكاوى الطلبة و مقترحاتهم المتعامل معها و المحلول منها
-        </label>
-        <br>
-        <br>
-        <input class="mySlider" name="q8" type="range" min="0" max="100" value="50" id="q8Slider">
-        <br>
-        <center>
-          <span class="sliderValue" id="q8SliderValue">50</span>
-        </center>
-        <br>
-        <br>
-        <hr>
-
-        <br>
-        <br>
-        <label class="question">
-          نسبة رضى الطلبة عن فاعلية منصة الشكاوى
-        </label>
-        <br>
-        <br>
-        <input class="mySlider" name="q9" type="range" min="0" max="100" value="50" id="q9Slider">
-        <br>
-        <center>
-          <span class="sliderValue" id="q9SliderValue">50</span>
-        </center>
-        <br>
-        <br>
-        <hr>
-
-        <br>
-        <br>
-        <label class="question">
-          عدد المخالفات المتعلقة بالقيم المؤسسية التي ارتكبها العاملون في الجامعة
-        </label>
-        <br>
-        <br>
-        <label class="agree"><strong>أوافق</strong></label>
-        <input type="radio" name="q10" class="radioSmall" value="1">
-        <input type="radio" name="q10" class="radioSmall" value="2">
-        <input type="radio" name="q10" class="radioSmall" value="3">
-        <input type="radio" name="q10" class="radioSmall" value="4">
-        <input type="radio" name="q10" class="radioSmall" value="5">
-        <label class="disagree"><strong>لا أوافق</strong></label>
-        <br>
-        <br>
-        <hr>
-
-        <br>
-        <br>
-        <label class="question">
-          نسبة رضى الطلبة عن التواصل مع القيادات في الجامعة
-        </label>
-        <br>
-        <br>
-        <input class="mySlider" name="q11" type="range" min="0" max="100" value="50" id="q11Slider">
-        <br>
-        <center>
-          <span class="sliderValue" id="q11SliderValue">50</span>
-        </center>
-      </div>
-      <br>
-      <br>
-      <hr>
       <input type="submit" value="Submit" class="submitButton">
       <br>
       <br>
@@ -210,8 +100,6 @@
         <a href="{% url 'choices' %}" class="return-button">الرجوع</a>
     </center>
   </div>
-
-  <!-- SLIDER SCRIPT-->
   <script>
     // variables
     const slider = document.getElementById('mySlider');
@@ -223,28 +111,11 @@
     const q4Slider = document.getElementById('q4Slider');
     const q4output = document.getElementById('q4SliderValue');
 
-    const q5Slider = document.getElementById('q5Slider');
-    const q5output = document.getElementById('q5SliderValue');
-
-    const q8Slider = document.getElementById('q8Slider');
-    const q8output = document.getElementById('q8SliderValue');
-
-    const q9Slider = document.getElementById('q9Slider');
-    const q9output = document.getElementById('q9SliderValue');
-
-    const q11Slider = document.getElementById('q11Slider');
-    const q11output = document.getElementById('q11SliderValue');
-    
     // span text conent
     output.textContent = slider.value; // Display the default slider value
     q3output.textContent = q3Slider.value
-    q4output.textContent = q4Slider.value; // Display the default slider value
-    q5output.textContent = q5Slider.value
-    q8output.textContent = q8Slider.value; // Display the default slider value
-    q9output.textContent = q9Slider.value
-    q11output.textContent = q11Slider.value
-  
-
+    q4output.textContent = q4Slider.value;
+    
     // silder functions
     slider.addEventListener('input', function() {
       output.textContent = this.value; // Update the displayed value as the slider is dragged
@@ -258,22 +129,218 @@
       q4output.textContent = this.value; // Update the displayed value as the slider is dragged
     });
 
-    q5Slider.addEventListener('input', function() {
-      q5output.textContent = this.value; // Update the displayed value as the slider is dragged
-    });
-
-    q8Slider.addEventListener('input', function() {
-      q8output.textContent = this.value; // Update the displayed value as the slider is dragged
-    });
-
-    q9Slider.addEventListener('input', function() {
-      q9output.textContent = this.value; // Update the displayed value as the slider is dragged
-    });
-
-    q11Slider.addEventListener('input', function() {
-      q11output.textContent = this.value; // Update the displayed value as the slider is dragged
-    });
   </script>
+
+  <!-- SLIDER SCRIPT-->
+  
+ 
+  {% elif user.role == "admin"  %}
+  <div class="center-text">
+    <center>
+        نظام الحاكمية الرشيدة للطلاب 
+    </center>
+</div>
+
+<div class="center">
+  <form method="post">
+    {% csrf_token %}
+    <div class="questions">
+      <br>
+      <br>
+      <label class="question">
+        نسبة رضى العاملين عن التزام الجامعة بممارسات الحاكمية الرشيدة من ناحية المشاركة،
+        والشفافية والعدالة والمساواة بين الجنسين والمساءلة والفعالية
+      </label>
+
+      <br>
+      <br>
+      <label class="question">
+        وجود سياسة وإجراءات و نماذج لإدارة شكاوى العاملين
+      </label>
+      <br>
+      <br>
+      <label class="question">
+        نسبة شكاوى العاملين و مقترحاتهم من العاملين المتعامل معها و المحلول منا
+      </label>
+      <br>
+      <br>
+
+      <label class="question">
+      نسبة رضى العاملين من فاعلية منصة الشكاوى و المقتراحات, و نسبة حل المشاكل
+      </label>
+      <br>
+      <br>
+
+      <br>
+      <label class="question">
+        نسبة رضى الطلبة عن التزام الجامعة بممارسات الحاكمية الرشيدة من ناحية المشاركة، والشفافية والعدالة والمساواة بين الجنسين والمساءلة والفعالي
+      </label>
+    
+      <br>
+      <br>
+      <label class="question">
+        وجود سياسة و إجاءات و نماذج لإدارة شكاوى الطلبة
+      </label>
+      <br>
+      <br>
+
+      <label class="question">
+        وجود نظام إلكتروني لإدارة الشكاوى الواردة من الطلبة
+      </label>
+      <br>
+      <br>
+
+      <label class="question">
+        نسبة شكاوى الطلبة و مقترحاتهم المتعامل معها و المحلول منها
+      </label>
+      <br>
+      <br>
+
+      <label class="question">
+        نسبة رضى الطلبة عن فاعلية منصة الشكاوى
+      </label>
+      <br>
+      <br>
+
+      <label class="question">
+        عدد المخالفات المتعلقة بالقيم المؤسسية التي ارتكبها العاملون في الجامعة
+      </label>
+      <br>
+      <br>    
+      
+      <label class="question">
+        نسبة رضى الطلبة عن التواصل مع القيادات في الجامعة
+      </label>
+
+
+  </form>
+  </div>
+
+  {% elif user.role == "student"  %}
+  <div class="center-text">
+      <center>
+          نظام الحاكمية الرشيدة للطلاب 
+      </center>
+  </div>
+
+  <div class="center">
+    <form method="post">
+      {% csrf_token %}
+      <div class="questions">
+        <br>
+        <br>
+        <label class="question">
+          نسبة رضى الطلبة عن التزام الجامعة بممارسات الحاكمية الرشيدة من ناحية المشاركة، والشفافية والعدالة والمساواة بين الجنسين والمساءلة والفعالي
+        </label>
+        <br>
+        <br>
+        <input class="mySlider" name="student-question1" type="range" min="0" max="100" value="50" id="student-question1">
+        <br>
+        <center>
+          <span class="sliderValue" id="student-slider1">50</span>
+        </center>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          وجود سياسة و إجاءات و نماذج لإدارة شكاوى الطلبة
+        </label>
+        <br>
+        <br>
+        <label class="agree"><strong>أوافق بشدة</strong></label>        
+        <input type="radio" name="student-question2" class="radioSmall" value="100">
+        <input type="radio" name="student-question2" class="radioSmall" value="75">
+        <input type="radio" name="student-question2" class="radioSmall" value="50">
+        <input type="radio" name="student-question2" class="radioSmall" value="25">
+        <input type="radio" name="student-question2" class="radioSmall" value="0">
+        <label class="disagree"><strong>لا أوافق بشدة</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          وجود نظام إلكتروني لإدارة الشكاوى الواردة من الطلبة
+        </label>
+        <br>
+        <br>
+        <label class="agree"><strong>أوافق بشدة</strong></label>
+        <input type="radio" name="student-question3" class="radioSmall" value="100">
+        <input type="radio" name="student-question3" class="radioSmall" value="75">
+        <input type="radio" name="student-question3" class="radioSmall" value="50">
+        <input type="radio" name="student-question3" class="radioSmall" value="25">
+        <input type="radio" name="student-question3" class="radioSmall" value="0">        
+        <label class="disagree"><strong>لا أوافق بشدة</strong></label>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          نسبة شكاوى الطلبة و مقترحاتهم المتعامل معها و المحلول منها
+        </label>
+        <br>
+        <br>
+        <input class="mySlider" name="student-question4" type="range" min="0" max="100" value="50" id="student-question4">
+        <br>
+        <center>
+          <span class="sliderValue" id="student-slider4">50</span>
+        </center>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          نسبة رضى الطلبة عن فاعلية منصة الشكاوى
+        </label>
+        <br>
+        <br>
+        <input class="mySlider" name="student-question5" type="range" min="0" max="100" value="50" id="student-question5">
+        <br>
+        <center>
+          <span class="sliderValue" id="student-slider5">50</span>
+        </center>
+        <br>
+        <br>
+        <hr>
+
+        <br>
+        <br>
+        <label class="question">
+          نسبة رضى الطلبة عن التواصل مع القيادات في الجامعة
+        </label>
+        <br>
+        <br>
+        <input class="mySlider" name="student-question6" type="range" min="0" max="100" value="50" id="student-question6">
+        <br>
+        <center>
+          <span class="sliderValue" id="student-slider6">50</span>
+        </center>
+      </div>
+      <br>
+      <br>
+      <hr>
+      <input type="submit" value="Submit" class="submitButton">
+      <br>
+      <br>
+    </form>
+
+    <div style="margin-bottom: 70px;">
+      <center>
+        <a href="{% url 'choices' %}" class="return-button">الرجوع</a>
+      </center>
+    </div>
+  </div>
+  {% endif %}
+
+  
   {% else %}
     <div class="thank-you">
       !شكرا لك, لقد تم تلقي الرد
@@ -282,4 +349,5 @@
       </center>
     </div>
   {% endif %}
+    
 {% endblock content %}

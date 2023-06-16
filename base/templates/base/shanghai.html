@@ -1,0 +1,61 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<header class="header">
+    <img style="width: 210px" src="{% static 'logo-words.png' %}" alt="">
+    <div class="logout-div">
+        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+    </div>
+</header>
+
+<div class="center-text">
+    <center>
+        نظام تقـييـم شانغهاي 
+    </center>
+</div>
+
+<div class="form-query" style="margin-bottom: 120px;">
+    <form action="{% url 'shanghai' %}" method="get">
+        <select name="system" id="" class="system">
+            <option value="الكلي">الكلي</option>
+            <option value="التمريض عالميا">التمريض عالميا</option>
+            <option value="التمريض محليا">التمريض محليا</option>
+            <option value="علم الحاسوب و الهندسة عالميا">علم الحاسوب و الهندسة عالمياً</option>
+            <option value="علم الحاسوب و الهندسة محليا">علم الحاسوب و الهندسة محلياً</option>
+            <option value="الهندسة الكهربائية عالميا">الهندسة الكهربائية عالمياً</option>
+            <option value="الهندسة الكهربائية محليا">الهندسة الكهربائية محلياً</option>
+        </select>
+
+        <select name="year" id="" class="system">
+            <option value="" aria-checked="true">----</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2022">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select>
+
+        <br><br><br><br>
+        <div class="center-text">
+            <center>
+                لم يتم التقييم
+            </center>
+        </div>
+        
+        <center>
+            <div style="margin-bottom: 0px;">
+                <button class="select-button" type="submit">بحـث</button>
+            </div>
+        </center>
+    </form>
+</div>
+
+<div style="margin-top: 20px;">
+    <center>
+        <a href="{% url 'system-choices' %}" class="return-button">الرجوع</a>
+    </center>
+</div>
+{% endblock content %}

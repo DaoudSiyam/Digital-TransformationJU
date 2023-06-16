@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<header class="header">
+    <img style="width: 210px" src="{% static 'logo-words.png' %}" alt="">
+    <div class="logout-div">
+        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+    </div>
+</header>
+
+<div class="center-text">
+    <center>
+        نظام ترتيب الجامعة الأردنية
+    </center>
+</div>
+
+<div class="center-choices" style="margin-top: 100px;">
+    <div class="form-button">
+        <a href="{% url 'shanghai' %}" style="text-decoration: none; color: white; padding-left: 38px; padding-right: 38px;">تصنيف شنغهاي العالمي</a>
+    </div>
+    <div class="query-button">
+        <a href="{% url 'qs' %}" style="text-decoration: none; color: white; padding-left: 19px; padding-right: 19px;">تصنيف كيو أس العالمي للجامعات</a>
+    </div>
+</div>
+
+<div class="center-choices" style="margin-top: 100px; margin-bottom: 100px;">
+    <div class="form-button">
+        <a href="{% url 'the' %}" style="text-decoration: none; color: white;">تصنيف التايمز للجامعات العربية</a>
+    </div>
+    <div>
+        <div class="query-button">
+            <a href="{% url 'webometrics' %}" style="text-decoration: none; color: white; padding-left: 68px; padding-right: 68px;">                
+                تصنيف الويبو ميتركس
+            </a>
+        </div>
+    </div>
+</div>
+
+<div style="margin-bottom: 40px;">
+    <center>
+        <a href="{% url 'choices' %}" class="return-button">الرجوع</a>
+    </center>
+  </div>
+{% endblock content %}
