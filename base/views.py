@@ -83,8 +83,11 @@ def logout_user(request):
 
 
 def choices_page(request):
+    user = User.objects.get(id = request.user.id)
 
-    context = {}
+    context = {
+        'user' : user,
+    }
     return render(request, 'base/choices.html', context)
 
 
@@ -125,15 +128,31 @@ def webometrics(request):
 
 
 def shanghai(request):
+    q1 = request.GET.get( 'system' ) if request.GET.get( 'system' ) != None else ''
+    q2 = request.GET.get( 'year' ) if request.GET.get( 'year' ) != None else ''
+    
+    subject_query = Q( subject__icontains = q1 )
+    year_query = Q( year__icontains = q2 ) 
 
-    context = {}
+    query = subject_query & year_query
+
+    rankings = ShanghaiRanking.objects.filter(query)
+
+    context = {
+        'rankings' : rankings,
+    }
     return render(request, 'base/shanghai.html', context)
 
 
 
 def admin_panel(request):
+    user = User.objects.get(id = request.user.id)
+    if not user.role == 'admin':
+        return redirect('choices')
+    
     worker_feedback = WorkerFeedback.objects.all()
     student_feedback = StudentFeedback.objects.all()
+
 
 
     # WORKERS SECTION
@@ -152,6 +171,7 @@ def admin_panel(request):
     worker_q2_percentage = worker_q2_percentage / worker_feedback.count()
     worker_q3_percentage = worker_q3_percentage / worker_feedback.count()
     worker_q4_percentage = worker_q4_percentage / worker_feedback.count()
+
 
 
     # STUDENTS SECTION

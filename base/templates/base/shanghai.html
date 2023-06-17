@@ -16,19 +16,20 @@
 </div>
 
 <div class="form-query" style="margin-bottom: 120px;">
-    <form action="{% url 'shanghai' %}" method="get">
-        <select name="system" id="" class="system">
-            <option value="الكلي">الكلي</option>
-            <option value="التمريض عالميا">التمريض عالميا</option>
-            <option value="التمريض محليا">التمريض محليا</option>
-            <option value="علم الحاسوب و الهندسة عالميا">علم الحاسوب و الهندسة عالمياً</option>
-            <option value="علم الحاسوب و الهندسة محليا">علم الحاسوب و الهندسة محلياً</option>
-            <option value="الهندسة الكهربائية عالميا">الهندسة الكهربائية عالمياً</option>
-            <option value="الهندسة الكهربائية محليا">الهندسة الكهربائية محلياً</option>
+    <form action="{% url 'shanghai' %}" method="GET">
+        <select name="system" id="" class="system" >
+            <option value="">----</option>
+            <option value="Overall">Overall</option>
+            <option value="Nursing globally">Nursing globally</option>
+            <option value="Nursing locally">Nursing locally</option>
+            <option value="Computer Science and Engineering globally">Computer Science and Engineering globally</option>
+            <option value="Computer Science and Engineering locally">Computer Science and Engineering locally</option>
+            <option value="Electrical Engineering locally">Electrical Engineering locally</option>
+            <option value="Electrical Engineering globally">Electrical Engineering globally</option>
         </select>
 
-        <select name="year" id="" class="system">
-            <option value="" aria-checked="true">----</option>
+        <select name="year" id="" class="system" name="q2">
+            <option value="">----</option>
             <option value="2023">2023</option>
             <option value="2022">2022</option>
             <option value="2021">2021</option>
@@ -40,9 +41,10 @@
 
         <br><br><br><br>
         <div class="center-text">
-            <center>
-                لم يتم التقييم
-            </center>
+            {% for ranking in rankings %}
+            ranking for {{ ranking.subject }} is {{ ranking.ranking }} for year {{ ranking.year }}
+            <br><br><br>
+            {% endfor %}
         </div>
         
         <center>
@@ -53,7 +55,7 @@
     </form>
 </div>
 
-<div style="margin-top: 20px;">
+<div style="margin-top: 20px; margin-bottom: 50px;">
     <center>
         <a href="{% url 'system-choices' %}" class="return-button">الرجوع</a>
     </center>
