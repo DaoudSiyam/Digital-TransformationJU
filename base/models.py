@@ -25,7 +25,8 @@ class WorkerFeedback(models.Model):
     q4 = models.IntegerField(default=0)
     
 
-class ShanghaiRanking(models.Model):
+class Ranking(models.Model):
+    system = models.CharField(max_length=200, null=True)
     subject = models.CharField(max_length=200, null=True)
     year = models.CharField(max_length=200, null=True)
     ranking = models.CharField(max_length=200 , null=True)
@@ -33,32 +34,6 @@ class ShanghaiRanking(models.Model):
     def __str__(self):
         return f"{self.subject} {self.year}"
 
-
-class QSRanking(models.Model):
-    subject = models.CharField(max_length=200, null=True)
-    year = models.CharField(max_length=200, null=True)
-    ranking = models.CharField(max_length=200 , null=True)
-
-    def __str__(self):
-        return f"{self.subject} {self.year}"
-
-
-class THERanking(models.Model):
-    subject = models.CharField(max_length=200, null=True)
-    year = models.CharField(max_length=200, null=True)
-    ranking = models.CharField(max_length=200 , null=True)
-
-    def __str__(self):
-        return f"{self.subject} {self.year}"
-
-
-class WebometricsRanking(models.Model):
-    subject = models.CharField(max_length=200, null=True)
-    year = models.CharField(max_length=200, null=True)
-    ranking = models.CharField(max_length=200 , null=True)
-
-    def __str__(self):
-        return f"{self.subject} {self.year}"
     
 
 '''

@@ -2,62 +2,70 @@
 {% load static %}
 
 {% block content %}
+
+<link rel="stylesheet" href="{% static '/rankings.css' %}">
+
+
 <header class="header">
     <img style="width: 210px" src="{% static 'logo-words.png' %}" alt="">
     <div class="logout-div">
-        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+        <a href="{% url 'logout' %}" class="logout-button" style="text-decoration: none; color: white;">Logout</a>
     </div>
 </header>
 
-<div class="center-text">
-    <center>
-        نظام تقـييـم شانغهاي 
-    </center>
-</div>
-
-<div class="form-query" style="margin-bottom: 120px;">
-    <form action="{% url 'shanghai' %}" method="GET">
-        <select name="system" id="" class="system" >
-            <option value="">----</option>
-            <option value="Overall">Overall</option>
-            <option value="Nursing globally">Nursing globally</option>
-            <option value="Nursing locally">Nursing locally</option>
-            <option value="Computer Science and Engineering globally">Computer Science and Engineering globally</option>
-            <option value="Computer Science and Engineering locally">Computer Science and Engineering locally</option>
-            <option value="Electrical Engineering locally">Electrical Engineering locally</option>
-            <option value="Electrical Engineering globally">Electrical Engineering globally</option>
-        </select>
-
-        <select name="year" id="" class="system" name="q2">
-            <option value="">----</option>
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2022">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-        </select>
-
-        <br><br><br><br>
-        <div class="center-text">
-            {% for ranking in rankings %}
-            ranking for {{ ranking.subject }} is {{ ranking.ranking }} for year {{ ranking.year }}
-            <br><br><br>
-            {% endfor %}
-        </div>
-        
+<div class="page-body">
+    <div class="center-text">
         <center>
-            <div style="margin-bottom: 0px;">
-                <button class="select-button" type="submit">بحـث</button>
-            </div>
+            نظام تقـييـم شانغهاي 
         </center>
-    </form>
-</div>
-
-<div style="margin-top: 20px; margin-bottom: 50px;">
-    <center>
-        <a href="{% url 'system-choices' %}" class="return-button">الرجوع</a>
-    </center>
+    </div>
+    
+    <div class="form-query" style="margin-bottom: 70px;" >
+        <form action="{% url 'shanghai' %}" method="GET" class="form-container">
+            <select name="system" id="" class="system" >
+                <option value="">----</option>
+                <option value="Overall">Overall</option>
+                <option value="Nursing globally">Nursing globally</option>
+                <option value="Nursing locally">Nursing locally</option>
+                <option value="Computer Science and Engineering globally">Computer Science and Engineering globally</option>
+                <option value="Computer Science and Engineering locally">Computer Science and Engineering locally</option>
+                <option value="Electrical Engineering locally">Electrical Engineering locally</option>
+                <option value="Electrical Engineering globally">Electrical Engineering globally</option>
+            </select>
+    
+            <select name="year" id="" class="system" name="q2">
+                <option value="">----</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2022">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+            </select>
+    
+            <br><br><br><br>
+            <div class="center-text">
+                {% for ranking in rankings %}
+                <span>
+                    ranking for {{ ranking.subject }} is {{ ranking.ranking }} for year {{ ranking.year }}
+                </span>
+                <br>        
+                {% endfor %}
+            </div>
+            
+            <center>
+                <div style="margin-bottom: 0px;">
+                    <button class="select-button" type="submit">بحـث</button>
+                </div>
+            </center>
+        </form>
+    </div>
+    
+    <div style="margin-top: 20px; margin-bottom: 50px;">
+        <center>
+            <a href="{% url 'system-choices' %}" class="return-button" style="text-decoration: none; color: white;">الرجوع</a>
+        </center>
+    </div>
 </div>
 {% endblock content %}

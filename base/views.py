@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User, ShanghaiRanking, WebometricsRanking , THERanking, QSRanking ,WorkerFeedback , StudentFeedback
+from .models import User, Ranking ,WorkerFeedback , StudentFeedback
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
@@ -136,7 +136,7 @@ def shanghai(request):
 
     query = subject_query & year_query
 
-    rankings = ShanghaiRanking.objects.filter(query)
+    rankings = Ranking.objects.filter( query )
 
     context = {
         'rankings' : rankings,
