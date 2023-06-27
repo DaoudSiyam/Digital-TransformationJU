@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static '/rankings.css' %}">
+
+
 <header class="header">
     <img style="width: 210px" src="{% static 'logo-words.png' %}" alt="">
     <div class="logout-div">
@@ -9,52 +12,82 @@
     </div>
 </header>
 
-<div class="center-text">
-    <center>
-        نظام ترتيب الجامعة الأردنية
-    </center>
-</div>
-
-<div class="form-query">
-    <form action="{% url 'query' %}" method="get">
-        <select name="system" id="" class="system">
-            <option value="shanghai">تصنيف شنغهاي العالمي</option>
-            <option value="qs">تصنيف كيو أس العالمي للجامعات</option>
-            <option value="the">التايمز للجامعات العربية</option>
-            <option value="Webometrics">Webometrics</option>
-        </select>
-
-        <select name="year" id="" class="system">
-            <option value="2022">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2022">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-        </select>
-
-        <select name="year" id="" class="system">
-            <option value="2022">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2022">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-        </select>
-
+<div class="page-body">
+    <div class="center-text" style="color: rgb(255, 255, 255); margin-bottom: 10px; margin-top: 60px;">
         <center>
-            <div>
-                <button class="select-button" type="submit">بحـث</button>
-            </div>
+            نظام تقـييـم الكيو إس العالمي
         </center>
-    </form>
-</div>
-
-<div>
-    <center>
-        <a href="{% url 'choices' %}" class="return-button">الرجوع</a>
-    </center>
+    </div>
+    
+    <div class="form-query" style="margin-bottom: 70px;" >
+        <form action="{% url 'qs' %}" method="GET" class="form-container">
+            <div class="search-div">
+                <select name="system" id="" class="system" >
+                    <option value="">----</option>
+                    <option value="Overall">Overall</option>
+                    <option value="Hiring Reputation">Hiring Reputation</option>
+                    <option value="Academic Reputation">Academic Reputation</option>
+                    <option value="Arabian Region">Arabian Region</option>
+                    <option value="Locally">Locally</option>
+                    <option value="Engineering and Technology">Engineering and Technology</option>
+                    <option value="Humanitarian Disciplines">Humanitarian Disciplines</option>
+                    <option value="Social and Administrative Sciences">Social and Administrative Sciences</option>
+                    <option value="Life Sciences and Medicine">Life Sciences and Medicine</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Computer Science and Information Technology">Computer Science and Information Technology</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Engineering - Electrical and Electronic">Engineering - Electrical and Electronic</option>
+                    <option value="Business Administration">Business Administration</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Chemical Engineering">Chemical Engineering</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Nursing">Nursing</option>
+                    <option value="Educational sciences">Educational sciences</option>
+                    <option value="Accounting and Financing">Accounting and Financing</option>
+                    <option value="Linguistics">Linguistics</option>
+                    <option value="English Language and Literature">English Language and Literature</option>
+                    <option value="Biological Sciences">Biological Sciences</option>
+                    <option value="Library Sciences">Library Sciences</option>
+                    <option value="Modern Languages">Modern Languages</option>
+                    <option value="Sustainability Globally">Sustainability Globally</option>
+                    <option value="Sustainability Locally">Sustainability Locally</option>
+                    <option value="Stars">Stars</option>
+                    
+                </select>
+        
+                <select name="year" id="" class="system" name="q2">
+                    <option value="">----</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                </select>
+                
+                <span>
+                    <button class="select-button" type="submit">بحـث</button>
+                </span>
+            </div>
+    
+            <br><br><br><br>
+            <div class="center-text">
+                {% for ranking in rankings %}
+                <span>
+                    ranking for {{ ranking.subject }} is {{ ranking.ranking }} for year {{ ranking.year }}
+                </span>
+                <br>        
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+    
+    <div style="margin-top: 20px; margin-bottom: 50px;">
+        <center>
+            <a href="{% url 'system-choices' %}" class="return-button" style="text-decoration: none; color: white;">الرجوع</a>
+        </center>
+    </div>
 </div>
 {% endblock content %}

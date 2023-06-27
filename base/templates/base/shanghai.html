@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-
 <link rel="stylesheet" href="{% static '/rankings.css' %}">
 
 
@@ -22,27 +21,33 @@
     
     <div class="form-query" style="margin-bottom: 70px;" >
         <form action="{% url 'shanghai' %}" method="GET" class="form-container">
-            <select name="system" id="" class="system" >
-                <option value="">----</option>
-                <option value="Overall">Overall</option>
-                <option value="Nursing globally">Nursing globally</option>
-                <option value="Nursing locally">Nursing locally</option>
-                <option value="Computer Science and Engineering globally">Computer Science and Engineering globally</option>
-                <option value="Computer Science and Engineering locally">Computer Science and Engineering locally</option>
-                <option value="Electrical Engineering locally">Electrical Engineering locally</option>
-                <option value="Electrical Engineering globally">Electrical Engineering globally</option>
-            </select>
-    
-            <select name="year" id="" class="system" name="q2">
-                <option value="">----</option>
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-                <option value="2017">2017</option>
-            </select>
+            <div class="search-div">
+                <select name="system" id="" class="system" >
+                    <option value="">----</option>
+                    <option value="Overall">Overall</option>
+                    <option value="Nursing globally">Nursing globally</option>
+                    <option value="Nursing locally">Nursing locally</option>
+                    <option value="Computer Science and Engineering globally">Computer Science and Engineering globally</option>
+                    <option value="Computer Science and Engineering locally">Computer Science and Engineering locally</option>
+                    <option value="Electrical Engineering locally">Electrical Engineering locally</option>
+                    <option value="Electrical Engineering globally">Electrical Engineering globally</option>
+                </select>
+        
+                <select name="year" id="" class="system" name="q2">
+                    <option value="">----</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                </select>
+
+                <span>
+                    <button class="select-button" type="submit">بحـث</button>
+                </span>
+            </div>
     
             <br><br><br><br>
             <div class="center-text">
@@ -52,13 +57,7 @@
                 </span>
                 <br>        
                 {% endfor %}
-            </div>
-            
-            <center>
-                <div style="margin-bottom: 0px;">
-                    <button class="select-button" type="submit">بحـث</button>
-                </div>
-            </center>
+            </div>                    
         </form>
     </div>
     

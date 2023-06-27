@@ -107,22 +107,55 @@ def system_choices(request):
 
 
 def qs(request):
+    q1 = request.GET.get( 'system' ) if request.GET.get( 'system' ) != None else ''
+    q2 = request.GET.get( 'year' ) if request.GET.get( 'year' ) != None else ''
+    
+    subject_query = Q( subject__icontains = q1 )
+    year_query = Q( year__icontains = q2 ) 
 
-    context = {}
+    query = subject_query & year_query
+
+    rankings = QS.objects.filter( query )
+
+    context = {
+        'rankings' : rankings,
+    }
     return render(request, 'base/qs.html', context)
 
 
 
 def the(request):
+    q1 = request.GET.get( 'system' ) if request.GET.get( 'system' ) != None else ''
+    q2 = request.GET.get( 'year' ) if request.GET.get( 'year' ) != None else ''
+    
+    subject_query = Q( subject__icontains = q1 )
+    year_query = Q( year__icontains = q2 ) 
 
-    context = {}
+    query = subject_query & year_query
+
+    rankings = THE.objects.filter( query )
+
+    context = {
+        'rankings' : rankings,
+    }
     return render(request, 'base/the.html', context)
 
 
 
 def webometrics(request):
+    q1 = request.GET.get( 'system' ) if request.GET.get( 'system' ) != None else ''
+    q2 = request.GET.get( 'year' ) if request.GET.get( 'year' ) != None else ''
+    
+    subject_query = Q( subject__icontains = q1 )
+    year_query = Q( year__icontains = q2 ) 
 
-    context = {}
+    query = subject_query & year_query
+
+    rankings = Webometrics.objects.filter( query )
+
+    context = {
+        'rankings' : rankings,
+    }
     return render(request, 'base/webometrics.html', context)
 
 

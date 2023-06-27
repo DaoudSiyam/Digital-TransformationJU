@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static '/rankings.css' %}">
+
+
 <header class="header">
     <img style="width: 210px" src="{% static 'logo-words.png' %}" alt="">
     <div class="logout-div">
@@ -9,52 +12,55 @@
     </div>
 </header>
 
-<div class="center-text">
-    <center>
-        نظام ترتيب الجامعة الأردنية
-    </center>
-</div>
-
-<div class="form-query">
-    <form action="{% url 'query' %}" method="get">
-        <select name="system" id="" class="system">
-            <option value="shanghai">تصنيف شنغهاي العالمي</option>
-            <option value="qs">تصنيف كيو أس العالمي للجامعات</option>
-            <option value="the">التايمز للجامعات العربية</option>
-            <option value="Webometrics">Webometrics</option>
-        </select>
-
-        <select name="year" id="" class="system">
-            <option value="2022">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2022">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-        </select>
-
-        <select name="year" id="" class="system">
-            <option value="2022">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2022">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-        </select>
-
+<div class="page-body">
+    <div class="center-text" style="color: rgb(255, 255, 255); margin-bottom: 10px; margin-top: 60px;">
         <center>
-            <div>
-                <button class="select-button" type="submit">بحـث</button>
-            </div>
+            نظام تقـييـم الويبومتركس
         </center>
-    </form>
-</div>
+    </div>
+    
+    <div class="form-query" style="margin-bottom: 70px;">
+        <form action="{% url 'webometrics' %}" method="GET" class="form-container">
+            <div class="search-div">
+                <select name="system" id="" class="system" >
+                    <option value="">----</option>
+                    <option value="Globally">Globally</option>
+                    <option value="Arabian region">Arabian region</option>
+                    <option value="Locally">Locally</option>
+                </select>
+        
+                <select name="year" id="" class="system" name="q2">
+                    <option value="">----</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                </select>
 
-<div>
-    <center>
-        <a href="{% url 'choices' %}" class="return-button">الرجوع</a>
-    </center>
+                <span>
+                    <button class="select-button" type="submit">بحـث</button>
+                </span>
+            </div>
+    
+            <br><br><br><br>
+            <div class="center-text">
+                {% for ranking in rankings %}
+                <span>
+                    ranking for {{ ranking.subject }} is {{ ranking.ranking }} for year {{ ranking.year }}
+                </span>
+                <br>        
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+    
+    <div style="margin-top: 20px; margin-bottom: 50px;">
+        <center>
+            <a href="{% url 'system-choices' %}" class="return-button" style="text-decoration: none; color: white;">الرجوع</a>
+        </center>
+    </div>
 </div>
 {% endblock content %}
